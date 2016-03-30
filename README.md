@@ -1,3 +1,7 @@
+# This plugin is in development
+
+You cannot use this plugin. Please wait a little more.
+
 # Itamae::Plugin::Recipe::YkMecab
 
 Itamae plugin to install mecab
