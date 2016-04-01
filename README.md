@@ -45,7 +45,7 @@ include_recipe "yk_mecab::install"
 ```yml
 # for example
 
-home_dir: '/home/vagrant'
+home_dir: '/home/ec2-user/'
 ```
 
 ## License
