@@ -6,6 +6,11 @@ You cannot use this plugin. Please wait a little more.
 
 Itamae plugin to install mecab
 
+mecab version : 0.994
+
+mecab dictionary
+- 
+
 ## Installation
 
 This gem is required g++ and wget.
