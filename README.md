@@ -8,6 +8,8 @@ Itamae plugin to install mecab
 
 ## Installation
 
+This gem is required g++ and wget.
+
 Add this line to your application's Gemfile:
 
 ```ruby
