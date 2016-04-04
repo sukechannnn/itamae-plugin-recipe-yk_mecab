@@ -1,4 +1,10 @@
-package 'gcc-c++'
+case node[:platform]
+when %r(redhat|fedora)
+  package 'gcc-c++'
+when %r(debian|ubuntu)
+  package 'g++'
+end
+
 package 'wget'
 
 # download and install mecab
@@ -21,11 +27,22 @@ execute "tar zxvf mecab-ipadic-2.7.0-20070801.tar.gz" do
   not_if 'ls | grep mecab-ipadic-2.7.0-20070801$'
 end
 
+case node[:platform]
+when %r(debian|ubuntu)
+  execute "echo /usr/local/lib >> /etc/ld.so.conf"
+  execute "sudo ldconfig"
+end
+
 execute "cd mecab-ipadic-2.7.0-20070801; sudo ./configure --with-mecab-config=/usr/local/bin/mecab-config --with-charset=utf8"
 execute "cd mecab-ipadic-2.7.0-20070801; make; sudo make install"
 
 unless node[:mecab][:hatena].empty?
-  execute "sudo yum localinstall -y http://mirror.centos.org/centos/6/os/x86_64/Packages/nkf-2.0.8b-6.2.el6.x86_64.rpm"
+  case node[:platform]
+  when %r(redhat|fedora)
+    execute "sudo yum localinstall -y http://mirror.centos.org/centos/6/os/x86_64/Packages/nkf-2.0.8b-6.2.el6.x86_64.rpm"
+  when %r(debian|ubuntu)
+    execute "sudo apt-get install nkf"
+  end
   execute "wget http://d.hatena.ne.jp/images/keyword/keywordlist_furigana.csv" do
     not_if 'ls | grep keywordlist_furigana.csv'
   end
