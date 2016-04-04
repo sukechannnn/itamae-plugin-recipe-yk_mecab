@@ -34,6 +34,7 @@ when %r(debian|ubuntu)
 end
 
 execute "cd mecab-ipadic-2.7.0-20070801; sudo ./configure --with-mecab-config=/usr/local/bin/mecab-config --with-charset=utf8"
+
 execute "cd mecab-ipadic-2.7.0-20070801; make; sudo make install"
 
 unless node[:mecab][:hatena].empty?
