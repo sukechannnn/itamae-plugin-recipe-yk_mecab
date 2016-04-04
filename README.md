@@ -6,9 +6,14 @@ You cannot use this plugin. Please wait a little more.
 
 Itamae plugin to install mecab
 
+mecab version : 0.994
+
+mecab dictionary
+-
+
 ## Installation
 
-This gem is required g++ and wget.
+This gem is required g++, wget and Ruby.
 
 Add this line to your application's Gemfile:
 
@@ -26,13 +31,21 @@ Or install it yourself as:
 
 ## Usage
 
-Write a following line to your itamae recipe.
+### install for system
 
 ```rb
 # recipe.rb
 
 # Install Docker, start it and ensure it starts on boot.
 include_recipe "yk_mecab::install"
+```
+
+### node.yml
+
+```yml
+# for example
+
+home_dir: '/home/ec2-user/'
 ```
 
 ## License
