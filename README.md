@@ -8,12 +8,14 @@ Itamae plugin to install mecab
 
 mecab version : 0.994
 
-mecab dictionary
--
+mecab dictionarys
+- IPA
+- hatena
+- wikipedia
 
 ## Installation
 
-This gem is required g++, wget and Ruby.
+This gem is required Ruby.
 
 Add this line to your application's Gemfile:
 
@@ -45,6 +47,7 @@ include_recipe "yk_mecab::install"
 ```yml
 # for example
 
+user: 'vagrant'
 home_dir: '/home/ec2-user/'
 ```
 
