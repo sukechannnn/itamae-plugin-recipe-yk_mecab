@@ -29,7 +29,9 @@ end
 
 case node[:platform]
 when %r(debian|ubuntu)
-  execute "echo /usr/local/lib >> /etc/ld.so.conf"
+  execute "echo /usr/local/lib >> /etc/ld.so.conf" do
+    not_if 'grep /usr/local/lib /etc/ld.so.conf'
+  end
   execute "sudo ldconfig"
 end
 
