@@ -50,8 +50,8 @@ include_recipe "yk_mecab::install"
 user: 'vagrant'
 home_dir: '/home/ec2-user/'
 mecab:
-  hatena: '1'  # If you use hatena dictionary
-  wikipedia: '' # If you don't use wikipedia dictionary
+  hatena: '1'  # If you need hatena dictionary
+  wikipedia: '' # If you don't need wikipedia dictionary
 
 ```
 
