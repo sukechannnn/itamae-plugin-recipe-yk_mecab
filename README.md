@@ -6,9 +6,16 @@ You cannot use this plugin. Please wait a little more.
 
 Itamae plugin to install mecab
 
+mecab version : 0.994
+
+mecab dictionarys
+- IPA
+- hatena
+- wikipedia
+
 ## Installation
 
-This gem is required g++ and wget.
+This gem is required Ruby.
 
 Add this line to your application's Gemfile:
 
@@ -26,13 +33,26 @@ Or install it yourself as:
 
 ## Usage
 
-Write a following line to your itamae recipe.
+### install for system
 
 ```rb
 # recipe.rb
 
 # Install Docker, start it and ensure it starts on boot.
 include_recipe "yk_mecab::install"
+```
+
+### node.yml
+
+```yml
+# for example
+
+user: 'vagrant'
+home_dir: '/home/ec2-user/'
+mecab:
+  hatena: '1'  # If you need hatena dictionary
+  wikipedia: '' # If you don't need wikipedia dictionary
+
 ```
 
 ## License
