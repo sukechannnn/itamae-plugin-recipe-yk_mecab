@@ -1,10 +1,10 @@
+# install g++ and wget
 case node[:platform]
 when %r(redhat|fedora)
   package 'gcc-c++'
 when %r(debian|ubuntu)
   package 'g++'
 end
-
 package 'wget'
 
 # download and install mecab
@@ -18,7 +18,7 @@ end
 
 execute "cd mecab-0.994; sudo ./configure --enable-utf8-only; make; sudo make install"
 
-# install dictionary
+# install ipa dictionary
 execute "wget http://mecab.googlecode.com/files/mecab-ipadic-2.7.0-20070801.tar.gz" do
   not_if 'ls | mecab-ipadic-2.7.0-20070801.tar.gz'
 end
@@ -34,9 +34,9 @@ when %r(debian|ubuntu)
 end
 
 execute "cd mecab-ipadic-2.7.0-20070801; sudo ./configure --with-mecab-config=/usr/local/bin/mecab-config --with-charset=utf8"
-
 execute "cd mecab-ipadic-2.7.0-20070801; make; sudo make install"
 
+# install hatena dictionary
 unless node[:mecab][:hatena].empty?
   case node[:platform]
   when %r(redhat|fedora)
@@ -50,6 +50,7 @@ unless node[:mecab][:hatena].empty?
   execute "nkf -w --overwrite keywordlist_furigana.csv"
 end
 
+# install wikipedia dictionary
 unless node[:mecab][:wikipedia].empty?
   execute "wget http://dumps.wikimedia.org/jawiki/latest/jawiki-latest-all-titles-in-ns0.gz" do
     not_if 'ls | grep jawiki-latest-all-titles-in-ns0'
@@ -59,6 +60,7 @@ unless node[:mecab][:wikipedia].empty?
   end
 end
 
+# compile hatena or wikipedia dictionary
 unless node[:mecab][:wikipedia].empty? && node[:mecab][:hatena].empty?
   remote_file "#{node[:home_dir]}/make_dict.rb" do
     source './files/make_dict.rb'
