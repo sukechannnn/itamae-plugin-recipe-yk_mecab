@@ -1,5 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/itamae-plugin-recipe-yk_mecab.svg)](https://badge.fury.io/rb/itamae-plugin-recipe-yk_mecab)
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/yosuke0315/itamae-plugin-recipe-yk_mecab/blob/master/LICENSE.txt)
 
 # Itamae::Plugin::Recipe::YkMecab
 
