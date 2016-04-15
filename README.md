@@ -1,3 +1,6 @@
+[![Gem Version](https://badge.fury.io/rb/itamae-plugin-recipe-yk_mecab.svg)](https://badge.fury.io/rb/itamae-plugin-recipe-yk_mecab)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
 # Itamae::Plugin::Recipe::YkMecab
 
 Itamae plugin to install mecab
