@@ -34,7 +34,6 @@ Or install it yourself as:
 ```rb
 # recipe.rb
 
-# Install Docker, start it and ensure it starts on boot.
 include_recipe "yk_mecab::install"
 ```
 
