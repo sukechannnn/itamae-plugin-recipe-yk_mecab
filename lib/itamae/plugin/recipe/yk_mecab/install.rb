@@ -67,10 +67,10 @@ unless node[:mecab][:wikipedia].empty? && node[:mecab][:hatena].empty?
   remote_file "#{node[:home_dir]}/make_dict.rb" do
     source './files/make_dict.rb'
     mode '755'
-    user node[:user]
+    user node[:mecab][:user]
   end
   execute "/bin/bash -lc 'ruby make_dict.rb'" do
-    user node[:user]
+    user node[:mecab][:user]
   end
   execute "/usr/local/libexec/mecab/mecab-dict-index -d /usr/local/lib/mecab/dic/ipadic -u custom.dic -f utf-8 -t utf-8 custom.csv"
 end
