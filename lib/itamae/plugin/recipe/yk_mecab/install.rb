@@ -8,22 +8,22 @@ end
 package 'wget'
 
 # download and install mecab
-execute "wget http://mecab.googlecode.com/files/mecab-0.994.tar.gz" do
-  not_if 'ls | grep mecab-0.994.tar.gz'
+execute "wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mecab/mecab_0.996.orig.tar.gz" do
+  not_if 'ls | grep mecab_0.996.orig.tar.gz'
 end
 
-execute "tar zxvf mecab-0.994.tar.gz" do
-  not_if 'ls | grep mecab-0.994$'
+execute "tar zxvf mecab_0.996.orig.tar.gz" do
+  not_if 'ls | grep mecab-0.996$'
 end
 
-execute "cd mecab-0.994; sudo ./configure --enable-utf8-only; make; sudo make install"
+execute "cd mecab-0.996; sudo ./configure --enable-utf8-only; make; sudo make install"
 
 # install ipa dictionary
-execute "wget http://mecab.googlecode.com/files/mecab-ipadic-2.7.0-20070801.tar.gz" do
-  not_if 'ls | grep mecab-ipadic-2.7.0-20070801.tar.gz'
+execute "wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mecab-ipadic/mecab-ipadic_2.7.0-20070801+main.orig.tar.gz" do
+  not_if 'ls | grep mecab-ipadic_2.7.0-20070801+main.orig.tar.gz'
 end
 
-execute "tar zxvf mecab-ipadic-2.7.0-20070801.tar.gz" do
+execute "tar zxvf mecab-ipadic_2.7.0-20070801+main.orig.tar.gz" do
   not_if 'ls | grep mecab-ipadic-2.7.0-20070801$'
 end
 
